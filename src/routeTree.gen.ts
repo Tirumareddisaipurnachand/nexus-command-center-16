@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedFlashcardsRouteImport } from './routes/_authenticated/flashcards'
+import { Route as AuthenticatedInternshipsRouteImport } from './routes/_authenticated/internships'
 import { Route as AuthenticatedMaterialsRouteImport } from './routes/_authenticated/materials'
 import { Route as AuthenticatedProjectsRouteImport } from './routes/_authenticated/projects'
 import { Route as AuthenticatedQuizzesRouteImport } from './routes/_authenticated/quizzes'
@@ -44,6 +45,12 @@ const AuthenticatedFlashcardsRoute = AuthenticatedFlashcardsRouteImport.update({
   path: '/flashcards',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedInternshipsRoute =
+  AuthenticatedInternshipsRouteImport.update({
+    id: '/internships',
+    path: '/internships',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedMaterialsRoute = AuthenticatedMaterialsRouteImport.update({
   id: '/materials',
   path: '/materials',
@@ -75,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/flashcards': typeof AuthenticatedFlashcardsRoute
+  '/internships': typeof AuthenticatedInternshipsRoute
   '/materials': typeof AuthenticatedMaterialsRoute
   '/projects': typeof AuthenticatedProjectsRoute
   '/quizzes': typeof AuthenticatedQuizzesRoute
@@ -86,6 +94,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/flashcards': typeof AuthenticatedFlashcardsRoute
+  '/internships': typeof AuthenticatedInternshipsRoute
   '/materials': typeof AuthenticatedMaterialsRoute
   '/projects': typeof AuthenticatedProjectsRoute
   '/quizzes': typeof AuthenticatedQuizzesRoute
@@ -99,6 +108,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/flashcards': typeof AuthenticatedFlashcardsRoute
+  '/_authenticated/internships': typeof AuthenticatedInternshipsRoute
   '/_authenticated/materials': typeof AuthenticatedMaterialsRoute
   '/_authenticated/projects': typeof AuthenticatedProjectsRoute
   '/_authenticated/quizzes': typeof AuthenticatedQuizzesRoute
@@ -112,6 +122,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/dashboard'
     | '/flashcards'
+    | '/internships'
     | '/materials'
     | '/projects'
     | '/quizzes'
@@ -123,6 +134,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/dashboard'
     | '/flashcards'
+    | '/internships'
     | '/materials'
     | '/projects'
     | '/quizzes'
@@ -135,6 +147,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/_authenticated/dashboard'
     | '/_authenticated/flashcards'
+    | '/_authenticated/internships'
     | '/_authenticated/materials'
     | '/_authenticated/projects'
     | '/_authenticated/quizzes'
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedFlashcardsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/internships': {
+      id: '/_authenticated/internships'
+      path: '/internships'
+      fullPath: '/internships'
+      preLoaderRoute: typeof AuthenticatedInternshipsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/materials': {
       id: '/_authenticated/materials'
       path: '/materials'
@@ -226,6 +246,7 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedFlashcardsRoute: typeof AuthenticatedFlashcardsRoute
+  AuthenticatedInternshipsRoute: typeof AuthenticatedInternshipsRoute
   AuthenticatedMaterialsRoute: typeof AuthenticatedMaterialsRoute
   AuthenticatedProjectsRoute: typeof AuthenticatedProjectsRoute
   AuthenticatedQuizzesRoute: typeof AuthenticatedQuizzesRoute
@@ -236,6 +257,7 @@ interface AuthenticatedRouteRouteChildren {
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedFlashcardsRoute: AuthenticatedFlashcardsRoute,
+  AuthenticatedInternshipsRoute: AuthenticatedInternshipsRoute,
   AuthenticatedMaterialsRoute: AuthenticatedMaterialsRoute,
   AuthenticatedProjectsRoute: AuthenticatedProjectsRoute,
   AuthenticatedQuizzesRoute: AuthenticatedQuizzesRoute,
