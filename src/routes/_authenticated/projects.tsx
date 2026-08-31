@@ -100,7 +100,8 @@ function ProjectsPage() {
                     value={[p.progress]}
                     max={100}
                     step={5}
-                    onValueChange={async ([v]) => {
+                    onValueChange={async (values) => {
+                      const v = values[0] ?? 0;
                       await supabase.from("projects").update({ progress: v }).eq("id", p.id);
                       invalidate();
                     }}
