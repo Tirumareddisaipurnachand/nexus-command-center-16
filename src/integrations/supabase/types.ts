@@ -14,7 +14,293 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      flashcards: {
+        Row: {
+          back: string
+          created_at: string
+          deck: string
+          front: string
+          id: string
+          reviews: number
+          user_id: string
+        }
+        Insert: {
+          back: string
+          created_at?: string
+          deck?: string
+          front: string
+          id?: string
+          reviews?: number
+          user_id: string
+        }
+        Update: {
+          back?: string
+          created_at?: string
+          deck?: string
+          front?: string
+          id?: string
+          reviews?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      internships: {
+        Row: {
+          company: string
+          created_at: string
+          deadline: string | null
+          id: string
+          link: string | null
+          notes: string | null
+          role: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          company: string
+          created_at?: string
+          deadline?: string | null
+          id?: string
+          link?: string | null
+          notes?: string | null
+          role: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          company?: string
+          created_at?: string
+          deadline?: string | null
+          id?: string
+          link?: string | null
+          notes?: string | null
+          role?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      materials: {
+        Row: {
+          course: string | null
+          created_at: string
+          description: string | null
+          file_path: string
+          file_size: number | null
+          file_type: string | null
+          id: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          course?: string | null
+          created_at?: string
+          description?: string | null
+          file_path: string
+          file_size?: number | null
+          file_type?: string | null
+          id?: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          course?: string | null
+          created_at?: string
+          description?: string | null
+          file_path?: string
+          file_size?: number | null
+          file_type?: string | null
+          id?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          full_name: string | null
+          id: string
+          major: string | null
+          school: string | null
+          updated_at: string
+          weekly_goal_hours: number
+          year: string | null
+        }
+        Insert: {
+          created_at?: string
+          full_name?: string | null
+          id: string
+          major?: string | null
+          school?: string | null
+          updated_at?: string
+          weekly_goal_hours?: number
+          year?: string | null
+        }
+        Update: {
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          major?: string | null
+          school?: string | null
+          updated_at?: string
+          weekly_goal_hours?: number
+          year?: string | null
+        }
+        Relationships: []
+      }
+      projects: {
+        Row: {
+          created_at: string
+          description: string | null
+          due_date: string | null
+          id: string
+          progress: number
+          status: string
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          due_date?: string | null
+          id?: string
+          progress?: number
+          status?: string
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          due_date?: string | null
+          id?: string
+          progress?: number
+          status?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      quizzes: {
+        Row: {
+          created_at: string
+          id: string
+          last_score: number | null
+          questions: Json
+          subject: string | null
+          title: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          last_score?: number | null
+          questions?: Json
+          subject?: string | null
+          title: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          last_score?: number | null
+          questions?: Json
+          subject?: string | null
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      study_sessions: {
+        Row: {
+          id: string
+          minutes: number
+          notes: string | null
+          started_at: string
+          subject: string
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          minutes?: number
+          notes?: string | null
+          started_at?: string
+          subject: string
+          user_id: string
+        }
+        Update: {
+          id?: string
+          minutes?: number
+          notes?: string | null
+          started_at?: string
+          subject?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      tasks: {
+        Row: {
+          ai_generated: boolean
+          course: string | null
+          created_at: string
+          details: string | null
+          due_date: string | null
+          estimated_minutes: number | null
+          id: string
+          parent_id: string | null
+          priority: string
+          status: string
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          ai_generated?: boolean
+          course?: string | null
+          created_at?: string
+          details?: string | null
+          due_date?: string | null
+          estimated_minutes?: number | null
+          id?: string
+          parent_id?: string | null
+          priority?: string
+          status?: string
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          ai_generated?: boolean
+          course?: string | null
+          created_at?: string
+          details?: string | null
+          due_date?: string | null
+          estimated_minutes?: number | null
+          id?: string
+          parent_id?: string | null
+          priority?: string
+          status?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tasks_parent_id_fkey"
+            columns: ["parent_id"]
+            isOneToOne: false
+            referencedRelation: "tasks"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
