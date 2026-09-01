@@ -1,6 +1,6 @@
 # 🎓 NEXUS Student Command Center
 
-> An AI-powered student productivity workspace designed to help students organize academic tasks, study materials, quizzes, projects, and career opportunities — all in one place.
+An AI-powered student productivity workspace designed to help students organize academic tasks, study materials, quizzes, projects, and career opportunities — all in one place.
 
 ## 🚀 Overview
 
@@ -21,7 +21,7 @@ The platform helps students:
 
 The goal is simple:
 
-> **Turn scattered academic responsibilities into one organized student command center.**
+**Turn scattered academic responsibilities into one organized student command center.**
 
 ---
 
@@ -68,11 +68,11 @@ One of the core features of NEXUS is AI-assisted task planning.
 
 Instead of simply adding:
 
-> "Prepare for Data Structures exam"
+"Prepare for Data Structures exam"
 
 a student can provide a natural-language request such as:
 
-> "I have a Data Structures exam next week. Help me plan what I should study."
+ "I have a Data Structures exam next week. Help me plan what I should study."
 
 The AI can help convert a large academic responsibility into smaller, manageable steps.
 
