@@ -185,6 +185,10 @@ Start your day by checking upcoming deadlines, pending tasks, and priorities.
 
 Add assignments, exams, submissions, and other responsibilities.
 
+This project was built with [Lovable](https://lovable.dev). 
+
+**Live app**: https://nexus-command-center-16.lovable.app
+
 For example:
 
 ```text
